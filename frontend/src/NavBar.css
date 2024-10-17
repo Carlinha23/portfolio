@@ -1,28 +1,35 @@
 /* NavBar styles */
 .navbar-custom {
-    background-color: #940588;
+    background-color:rgb(99, 4, 78);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    
+    padding-top: 10px;
+    padding-bottom: 15px;
+      
   }
   
   .navbar-custom .navbar-brand {
     color: #ff9007;
-    padding: 10px 15px;
+    margin-top: 40px; /* Adds space above the element */
+    padding: 15px 45px;
     text-decoration: none;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: bold;  
+    
   }
-  
-  .navbar-custom .navbar-nav {
+
+  .navbar-nav {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
     justify-content: flex-end; /* Aligns nav items to the right */
     flex-grow: 1; /* Allows the navbar to take full width */
+    margin-top: -10px; /* Adjust this value to move the navbar-nav up */
+    margin-bottom: 10px; /* Creates more space between the navbar and the homepage */
+    flex-wrap: wrap; /* Enables wrapping of items on smaller screens */
   }
   
   .navbar-nav {
@@ -34,10 +41,9 @@
 
   .navbar-custom .navbar-nav .nav-item {
     margin: 0 15px;
-    margin-left: 80px;
-  
+    
   }
-  
+
 
   .navbar-custom .navbar-nav .nav-link {
     color: #ff9007;
@@ -56,4 +62,18 @@
   .navbar-custom .navbar-nav .nav-item.active .nav-link {
     background-color: #555;
   }
-  
+
+  /* Responsive Behavior */
+@media (max-width: 768px) {
+    .navbar-custom .navbar-nav {
+        justify-content: center; /* Center items on smaller screens */
+    }
+
+    .navbar-custom .navbar-nav .nav-item {
+        margin: 5px 10px; /* Reduce margin on smaller screens */
+    }
+
+    .navbar-brand {
+        font-size: 18px; /* Shrink brand size on smaller screens */
+    }
+}

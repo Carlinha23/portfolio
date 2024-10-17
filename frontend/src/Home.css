@@ -7,6 +7,7 @@ body {
   background-repeat: no-repeat;
   margin: 0;
   padding: 0;
+  padding-top: 31px;
 }
 
 h2 {
@@ -27,7 +28,7 @@ h2 {
 }
 
 h3 {
-  color: black;
+  color: #ffa435;
   font-weight: bold;
   margin-bottom: 10px;
 }
@@ -56,7 +57,7 @@ h3 {
 }
 
 .project-item {
-  background-color: #940588; 
+  background-color: #372037; 
   color: white;
   padding: 20px;
   border-radius: 10px;
@@ -85,17 +86,68 @@ h3 {
 }
 
 .skills li {
-  background-color: #940588 ;
+  background-color:rgb(99, 4, 78);
   color: white;
-  padding: 10px 20px;
+  padding: 5px 10px;
   margin: 5px;
   border-radius: 20px;
   font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Required for positioning the hidden text */
+  cursor: pointer;
+}
+
+.skill-logo {
+  width: 100px; /* Adjust size as necessary */
+  height: auto;
+  display: block; /* Ensure logos are block elements for correct layout */
+  margin: 0 auto; /* Center the logos */
+}
+
+/* Initially hide the skill text */
+.hiddenText {
+  display: none;
+  font-size: 0.9em;
+  color: white;
+  position: absolute;
+  top: 50px; /* Adjust position as needed */
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+  font-size: larger;
+}
+
+/* Highlight skill on hover */
+.skills li:hover {
+  background-color: #ff9007;
+}
+
+/* Reveal text and change background on hover */
+.skills li:hover .hiddenText {
+  display: block;
+}
+
+/* Fade the skill logo on hover */
+.skills li:hover .skill-logo {
+  opacity: 0.2;
+}
+
+.contact {
+  text-align: center; /* Center the content inside the section */
 }
 
 .contact p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   text-align: center;
+  background-color: #372037;
+  display: inline-block;
+  padding: 20px 20px; /* Smaller padding on left and right */
+  margin: 0 auto; /* Center the paragraph */
+  font-weight:700;
 }
 
 .btnCustom {
@@ -161,13 +213,12 @@ footer p {
 .about-text {
   flex: 1;
   padding: 20px;
-  background-color: #ffa435;
-  color: black;
+  background-color: #372037;
+  color: #ffa435;
   border-radius: 20px;
   max-width: 90%;
   height: auto;
   transition: all 0.3s ease;
-  font-family: cursive ;
   font-weight: 900;
   font-size: 1.0rem;
   line-height: 2.5;

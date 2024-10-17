@@ -1,0 +1,33 @@
+.footer {
+    background-color: rgb(99, 4, 78); /* Light purple */
+    padding: 20px;
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+  }
+  
+  .footer-links {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a {
+    margin: 0 15px;
+  }
+  
+  .footer-logo {
+    width: 40px; /* Adjust the size of the logos */
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .footer-logo:hover {
+    transform: scale(1.1); /* Hover effect to enlarge the logo */
+  }
+  
+  .footer-text {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #ffa435; /* Darker blue for contrast */
+  }
+  
+  
