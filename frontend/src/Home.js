@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+//import { Link } from 'react-router-dom';
 import './Home.css';
 import me from './images/me.jpg';
 import htmlLogo from './images/logo/html5-color.svg';
@@ -46,7 +47,7 @@ const Home = () => {
       <div className="project-list">
 
     {/* SoftwareIQ Review Project */}
-    <section className="project-item">
+    <div className="project-item">
       <h3>SoftwareIQ</h3>
       <p>
       SoftwareIQ is an investor-grade research platform designed for the software industry. SoftwareIQ combines deep industry knowledge with advanced technology to deliver a research experience that's accurate, comprehensive, and easy to navigate. From market trends to financial data, we provide a platform that covers the full spectrum of software investment opportunities.
@@ -54,29 +55,29 @@ const Home = () => {
       <strong>Tech Stack:</strong> React, jQuery, JavaScript, Material UI, CSS, AJAX, JSON, APIs, MongoDB
       </p>
       <a href="https://www.softwareiq.io/" target="_blank" rel="noopener noreferrer">View Project</a>
-    </section>
+    </div>
 
     {/* Skincare Review Project */}
-    <section className="project-item">
-      <h3>Skincare Review</h3>
+    <div className="project-item">
+      <h3>Invest DECODED</h3>
       <p>
-        Skincare Review is a web application designed for skincare enthusiasts to make informed decisions about products based on genuine user reviews, free from advertising and brand partnerships. Focused on facial skincare products, the platform allows users to share their experiences with specific products, helping others choose the best options for skin improvement.
+      Invest DECODED is a user-friendly web application created to help users understand and explore investment opportunities in the United States. Designed with beginners in mind, the platform simplifies complex financial concepts and provides accessible resources for those looking to build a strong foundation in investing. Whether you're just starting out or looking to expand your knowledge, Invest DECODED makes learning about investments engaging and approachable.
         <br /><br />
-        <strong>Tech Stack:</strong> React, jQuery, JavaScript, CSS, AJAX, JSON, APIs, PostgreSQL
+        <strong>Tech Stack:</strong> React, jQuery, JavaScript, CSS, AJAX, JSON, APIs, AWS, Auth0
       </p>
-      <a href="https://github.com/Carlinha23/skin-care" target="_blank" rel="noopener noreferrer">View Project</a>
-    </section>
+      <a href="https://investdecoded.com/" target="_blank" rel="noopener noreferrer">View Project</a>
+    </div>
 
     {/* Software News Project */}
-    <section className="project-item">
+    <div className="project-item">
       <h3>Software News</h3>
       <p>
       Software News is a dynamic news aggregator website tailored for software enthusiasts, developers, and tech professionals who want to stay informed about the latest trends, technologies, and innovations in the software industry. The platform gathers news from various credible sources, ensuring users have access to comprehensive, real-time updates on key developments such as software releases, industry reports, and emerging technologies.
       <br /><br />
         <strong>Tech Stack:</strong> Python, Flask, Bootstrap, PostgreSQL
       </p>
-      <a href="https://github.com/Carlinha23/news" target="_blank" rel="noopener noreferrer">View Project</a>
-    </section>
+      <a href="https://github.com/Carlinha23/news" target="_blank" rel="noopener noreferrer">View Details</a>
+    </div>
 
   </div>
 </section>

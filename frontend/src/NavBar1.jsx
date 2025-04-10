@@ -4,7 +4,6 @@ import './NavBar.css';
 
 const NavBar = ({ showHomeButton }) => {
   useEffect(() => {
-    // Smooth scrolling effect
     const handleScroll = (e) => {
       e.preventDefault();
       const targetId = e.currentTarget.getAttribute("href").slice(1);
@@ -13,7 +12,7 @@ const NavBar = ({ showHomeButton }) => {
       if (targetElement) {
         window.scrollTo({
           top: targetElement.offsetTop,
-          behavior: 'smooth'
+          behavior: 'smooth',
         });
       }
     };
@@ -25,7 +24,6 @@ const NavBar = ({ showHomeButton }) => {
     });
 
     return () => {
-      // Clean up event listeners on unmount
       navLinks.forEach((link) => {
         link.removeEventListener("click", handleScroll);
       });
@@ -36,26 +34,30 @@ const NavBar = ({ showHomeButton }) => {
     <nav className="navbar-custom navbar-fixed-top">
       <div className="container">
         <div className="navbar-header">
-          <NavLink to="/" className="navbar-brand">Carla Rodrigues Maturo</NavLink>
+          <NavLink to="/" className="navbar-brand">
+            Carla Rodrigues Maturo
+          </NavLink>
         </div>
         <ul className="navbar-nav">
           {showHomeButton ? (
             <li className="nav-item">
-              <NavLink to="/" className="nav-link">Back to Home</NavLink>
+              <NavLink to="/" className="nav-link">
+                Back to Home
+              </NavLink>
             </li>
           ) : (
             <>
               <li className="nav-item">
-                <NavLink to="#about" className="nav-link">About</NavLink>
+                <a href="#about" className="nav-link">About</a>
               </li>
               <li className="nav-item">
-                <NavLink to="#skills" className="nav-link">Skills</NavLink>
+                <a href="#skills" className="nav-link">Skills</a>
               </li>
               <li className="nav-item">
-                <NavLink to="#projects" className="nav-link">Projects</NavLink>
+                <a href="#projects" className="nav-link">Projects</a>
               </li>
               <li className="nav-item">
-                <NavLink to="#contact" className="nav-link">Contact</NavLink>
+                <a href="#contact" className="nav-link">Contact</a>
               </li>
             </>
           )}
@@ -66,3 +68,4 @@ const NavBar = ({ showHomeButton }) => {
 };
 
 export default NavBar;
+
