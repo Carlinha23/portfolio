@@ -50,9 +50,9 @@ const Home = () => {
     <div className="project-item">
       <h3>SoftwareIQ</h3>
       <p>
-      SoftwareIQ is an investor-grade research platform designed for the software industry. SoftwareIQ combines deep industry knowledge with advanced technology to deliver a research experience that's accurate, comprehensive, and easy to navigate. From market trends to financial data, we provide a platform that covers the full spectrum of software investment opportunities.
+      SoftwareIQ is a full-stack SaaS analytics platform for visualizing trends and performance across the B2B software industry. Built with React and Python, it integrates dynamic dashboards, interactive charts, and real-time data ingestion from public and private sources. Users can explore KPIs, filter comparable metrics, and access premium content through Auth0-secured login and Stripe-powered subscriptions.
       <br /><br />
-      <strong>Tech Stack:</strong> React, jQuery, JavaScript, Material UI, CSS, AJAX, JSON, APIs, MongoDB
+      <strong>Tech Stack:</strong> React, JavaScript, Material UI, AG Grid, Nivo, Python, MongoDB, AWS, Auth0, Stripe.
       </p>
       <a href="https://www.softwareiq.io/" target="_blank" rel="noopener noreferrer">View Project</a>
     </div>
@@ -61,9 +61,9 @@ const Home = () => {
     <div className="project-item">
       <h3>Invest DECODED</h3>
       <p>
-      Invest DECODED is a user-friendly web application created to help users understand and explore investment opportunities in the United States. Designed with beginners in mind, the platform simplifies complex financial concepts and provides accessible resources for those looking to build a strong foundation in investing. Whether you're just starting out or looking to expand your knowledge, Invest DECODED makes learning about investments engaging and approachable.
+      Invest DECODED is a responsive, bilingual personal finance education platform built with React, AWS and Auth0, featuring secure Stripe payment integration and role-based content access. Users can sign up, choose lessons in English or Portuguese, and unlock premium content after completing payment.
         <br /><br />
-        <strong>Tech Stack:</strong> React, jQuery, JavaScript, CSS, AJAX, JSON, APIs, AWS, Auth0
+        <strong>Tech Stack:</strong> React, JavaScript, CSS, JSON, APIs, AWS, Auth0, Stripe, Axios & Fetch, Icons8 / Font Awesome.
       </p>
       <a href="https://investdecoded.com/" target="_blank" rel="noopener noreferrer">View Project</a>
     </div>
@@ -74,7 +74,7 @@ const Home = () => {
       <p>
       Software News is a dynamic news aggregator website tailored for software enthusiasts, developers, and tech professionals who want to stay informed about the latest trends, technologies, and innovations in the software industry. The platform gathers news from various credible sources, ensuring users have access to comprehensive, real-time updates on key developments such as software releases, industry reports, and emerging technologies.
       <br /><br />
-        <strong>Tech Stack:</strong> Python, Flask, Bootstrap, PostgreSQL
+        <strong>Tech Stack:</strong> Python, Flask, Bootstrap, PostgreSQL.
       </p>
       <a href="https://github.com/Carlinha23/news" target="_blank" rel="noopener noreferrer">View Details</a>
     </div>
