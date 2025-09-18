@@ -1,0 +1,193 @@
+/* ---------- Theme (match skincare palette) ---------- */
+:root {
+  --purple: rgb(99, 4, 78);
+  --ink-dark: #f3edf3;
+  --accent: #ffa435;
+  --paper: antiquewhite;
+  --bg:  transparent; background: var(--bg); /* soft backdrop behind cards */
+  --shadow: 0 10px 28px rgba(0,0,0,.08);
+  --radius: 12px;
+}
+
+/* ---------- Page shell ---------- */
+.case {
+  display: block;
+  background: var(--bg);
+  min-height: 100vh;
+  padding-bottom: 120px;
+}
+
+/* ---------- Left panel (like .skin in Skincare) ---------- */
+.case-hero {
+  position: fixed;        /* keeps it visible while scrolling the right column */
+  top: 100px;             /* space under your navbar */
+  left: 40px;
+  max-width: 600px;
+  z-index: 1;
+
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+}
+
+.case-hero h1 {
+  margin: 0 0 10px 0;
+  background: var(--paper);
+  color: var(--purple);
+  font-weight: 800;
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+}
+
+.case-sub {
+  margin: 12px 0 18px 0;
+  color: var(--ink-dark);
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.case-cta {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  background: var(--purple);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Right column (like .picture in Skincare) ---------- */
+.case-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 700px;
+  /* push content to the right so it doesn't sit under the fixed left panel */
+  margin-top: 50px;
+  padding-right: 40px;
+  overflow-y: auto;     /* allows the right side to scroll naturally */
+}
+
+.case-section {
+  background: transparent;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.case-section h2 {
+  margin: 0 0 12px 0;
+  color: var(--accent);
+  font-weight: 800;
+  display: inline-block;
+  background: #000;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.ba-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ba-pill {
+  background: rgba(28,42,58,.85);
+  color: #ffffff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin-left: 8px;
+}
+.ba-pill--after { background: rgba(31,78,121,.9); }
+
+/* ---------- Back link (if you add one like Skincare) ---------- */
+.home-link {
+  margin-top: 20px;
+  text-align: center;
+}
+.home-link .navbar-brand {
+  color: var(--purple);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Side-by-side before/after (no slider) */
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Frame becomes a vertical stack: caption on top, image below */
+.ba-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;                  /* space between caption and image */
+  background: transparent;   /* or var(--paper) if you want a card */
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 12px;             /* outer padding around both */
+  margin: 0;
+}
+
+/* Put caption BEFORE the image visually */
+.ba-frame figcaption {
+  order: -1;                 /* moves it to the top */
+  align-self: flex-start;    /* keep it left-aligned */
+  background: rgba(0,0,0,0.65);  /* badge style (change as you like) */
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  margin: 0;
+}
+
+/* Image styles (no overlay) */
+.ba-frame img {
+  order: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #e9eef4;       /* subtle backdrop */
+}
+
+/* If you had the previous overlay rules, remove/override them */
+.ba-frame { position: static; overflow: visible; }
+.ba-frame figcaption { position: static; }
+
+
+
+
+/* Stack on narrow screens */
+@media (max-width: 900px) {
+  .ba-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---------- Responsive: collapse to single column ---------- */
+@media (max-width: 1200px) {
+  .case-hero {
+    position: static;   /* no fixed left panel on smaller screens */
+    margin: 20px;
+  }
+  .case-body {
+    margin: 0 20px;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .case-hero h1 {
+    font-size: 1.2rem;
+  }
+}

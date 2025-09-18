@@ -4,6 +4,7 @@ import Home from './Home';
 import NavBar from './NavBar1';
 import Footer from './Footer';
 import Skincare from './skincare1';
+import CaseInvestDecoded from './CaseInvestDecoded';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           
           {/* Skincare route */}
           <Route path="/skincare" component={Skincare} />
+          <Route path="/case/invest-decoded" component={CaseInvestDecoded}/>
         </Switch>
 
         {/* Footer */}

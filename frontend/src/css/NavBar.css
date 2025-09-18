@@ -1,0 +1,186 @@
+/* --- Theme (same palette as your old file) --- */
+:root {
+  --nav-bg: rgb(99, 4, 78);        /* purple */
+  --nav-accent: #ff9007;           /* orange (links + hamburger) */
+  --nav-hover-bg: #555;            /* your old hover background */
+  --nav-divider: rgba(255,255,255,0.25);
+  --nav-text: #ff9007;
+}
+
+.navbar-spacer { width: 100%; height: 0; } /* height is set inline by React */
+
+nav.navbar-custom.navbar-fixed-top {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background-color: var(--nav-bg) !important;
+  background-image: none !important;
+}
+
+nav.navbar-custom.navbar-fixed-top { margin: 0 !important; }
+.navbar-row { margin: 0 !important; }  /* you’re using padding, which is fine */
+
+.navbar-custom.navbar-fixed-top { outline: 0.5px solid #940588;; }
+
+
+/* Brand text color (ignored if you use a logo image) */
+.navbar-custom .navbar-brand {
+  color: var(--nav-accent);
+}
+
+.navbar-brand{
+   font-weight: 800;
+   font-size: 1.2rem;
+}
+
+/* Link colors + hover/active same as old */
+.navbar-custom .nav-link {
+  color: var(--nav-text);
+  font-weight: bold;
+}
+.navbar-custom .nav-link:hover {
+  background-color: var(--nav-hover-bg);
+  border-radius: 5px;
+}
+.navbar-custom .nav-item.active .nav-link {
+  background-color: var(--nav-hover-bg);
+}
+
+/* Layout row and header (from hamburger version) */
+.navbar-row {
+  background-color: var(--nav-bg) !important;
+  width: 100%;
+  min-height: 64px;
+  padding: 10px 30px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.navbar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+nav.navbar-custom.navbar-fixed-top a { text-decoration: none !important; }
+
+
+
+/* Hamburger uses your orange accent */
+.menu-toggle {
+  display: none;            /* shown on mobile */
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  padding: 8px;
+  cursor: pointer;
+}
+.menu-bar {
+  display: block;
+  height: 2px;
+  background: var(--nav-accent);
+  margin: 6px 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.menu-toggle.is-open .menu-bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.menu-toggle.is-open .menu-bar:nth-child(2) { opacity: 0; }
+.menu-toggle.is-open .menu-bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+
+
+/* --- Mobile (≤768px): hamburger + slide-down menu with your colors --- */
+@media (max-width: 768px) {
+  .navbar-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 10px 16px 8px;
+  }
+
+  .menu-toggle {
+    display: inline-block;
+    align-self: flex-end;
+    margin-right: 8px;
+  }
+
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin: 16px 0 0 !important; /* override any negative margin */
+    padding: 8px 12px 4px;
+   background-color: var(--nav-bg) !important;  /* key line */
+    border-top: 1px solid rgba(255,255,255,0.25);
+    justify-content: center;
+  }
+  .navbar-nav.is-open { display: flex; }
+
+  .navbar-custom .nav-link {
+    color: var(--nav-text);
+    text-align: center;
+    padding: 12px 8px;
+  }
+  .navbar-custom .nav-link:hover {
+    background-color: var(--nav-hover-bg);
+  }
+}
+
+
+/* <= 820px: keep links side-by-side (override mobile stack) */
+@media (min-width: 820px) {
+  /* keep brand + links on the same line */
+  .navbar-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+  /* don't let header take the whole row */
+  .navbar-header {
+    width: auto;
+    flex: 0 0 auto;
+  }
+  /* inline links with spacing */
+  .navbar-nav {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 16px;                 /* ← space between About / Skills / Projects / Contact */
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none;
+    background: transparent !important;
+    border-top: 0 !important;
+  }
+  .navbar-nav .nav-item { margin: 0; }         /* rely on gap for spacing */
+  .navbar-custom .nav-link { padding: 10px 12px; white-space: nowrap; }
+
+  /* hide hamburger on desktop */
+  .menu-toggle { display: none !important; }
+
+}
+
+/* Always clear the fixed navbar height measured in JS */
+body {
+  margin: 0;
+  border-top: 1px solid transparent; /* prevents first-child margin collapsing */
+}
+
+nav.navbar-custom .navbar-nav,
+nav.navbar-custom .navbar-nav .nav-item {
+  list-style: none;
+}
+
+nav.navbar-custom.navbar-fixed-top { background-color: var(--nav-bg) !important; }
+.navbar-row { background-color: var(--nav-bg) !important; }
+@media (max-width: 820px) {
+  .navbar-nav { background-color: var(--nav-bg) !important; } /* dropdown area */
+}
+
+
