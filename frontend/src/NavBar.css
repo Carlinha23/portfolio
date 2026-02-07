@@ -28,15 +28,16 @@ nav.navbar-custom.navbar-fixed-top { margin: 0 !important; }
   color: var(--nav-accent);
 }
 
-.navbar-brand{
-   font-weight: 800;
-   font-size: 1.2rem;
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
 /* Link colors + hover/active same as old */
 .navbar-custom .nav-link {
   color: var(--nav-text);
-  font-weight: bold;
+  font-weight: 500;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 .navbar-custom .nav-link:hover {
   background-color: var(--nav-hover-bg);

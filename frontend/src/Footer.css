@@ -1,9 +1,9 @@
 .footer {
-    background-color: rgb(99, 4, 78); /* Light purple */
-    padding: 20px;
+    background-color: rgb(99, 4, 78);
+    padding: 24px 20px;
     text-align: center;
     color: white;
-    margin-top: 40px;
+    margin-top: 60px;
   }
   
   .footer-links {
@@ -25,9 +25,9 @@
   }
   
   .footer-text {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #ffa435; /* Darker blue for contrast */
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #ffa435;
   }
   
   

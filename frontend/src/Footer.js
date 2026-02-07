@@ -22,7 +22,7 @@ const Footer = () => {
             <img src={gitHubLogo} alt="GitHub" className="footer-logo" />
           </a>
         </div>
-        <p className="footer-text">CARLA MATURO @2024</p>
+        <p className="footer-text">CARLA MATURO @2026</p>
       </footer>
     );
   }
