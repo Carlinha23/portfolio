@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-//import { Link } from 'react-router-dom';
 import './Home.css';
 import me from './images/me.jpg';
 import htmlLogo from './images/logo/html5-color.svg';
@@ -45,126 +44,66 @@ const projects = [
     title: 'Invest DECODED',
     shortDesc: 'Invest DECODED is a bilingual (EN/PT) personal finance and investing learning platform with role-based access control and Stripe-powered payments. Users can create an account, choose a language, and unlock premium lessons after checkout through an Auth0-secured experience. The app emphasizes responsive UI, clean UX, and secure content gating.',
     longDesc: 'I designed and built a bilingual education platform that delivers free and paid course content based on user entitlements. The frontend uses React/Next.js with Context-based state management for authentication state, user roles, and internationalization (language toggle + translated content). The backend is implemented with Node.js on AWS serverless (Lambda + API Gateway) with storage in S3 and DynamoDB. Stripe Checkout and webhook logic update user access after successful payment, enabling secure premium content gating. I also translated Figma designs into responsive components, improved load performance via code-splitting/lazy loading, and added tests with Jest.',
-    techStack: 'React, Next.js, JavaScript, AWS (Lambda, S3, API Gateway, DynamoDB), Auth0, Stripe, Jest.',
+    techStack: 'React, Next.js, JavaScript, AWS (Lambda, S3, API Gateway, DynamoDB), Auth0, Stripe.',
     link: 'https://investdecoded.com/',
     linkText: 'View Project'
   },
   {
-    id: 'softwarenews',
-    title: 'Software News',
-    shortDesc: 'Software News is a lightweight news aggregator for software and tech updates. It collects articles from multiple sources, normalizes the content, and stores results in PostgreSQL for quick retrieval. The platform presents a clean, responsive browsing experience using Flask and Bootstrap, allowing users to stay informed about the latest software releases, industry reports, and emerging technologies.',
-    longDesc: 'I built a Flask-based web app that aggregates software industry news and presents it through a straightforward, responsive interface. The backend retrieves articles from multiple feeds/sources, normalizes them, and stores them in PostgreSQL to support fast page loads and consistent browsing. The UI uses Bootstrap for a clean layout and mobile-friendly responsiveness.',
-    techStack: 'Python, Flask, Bootstrap, PostgreSQL.',
-    link: 'https://github.com/Carlinha23/news',
-    linkText: 'View Details'
+    id: 'seattlekidsparty',
+    title: 'Seattle Kids Party',
+    shortDesc: 'Seattle Kids Party is a marketing website built in Next.js for a kids party decoration and events company in the Seattle area. The site showcases party packages and rental equipment with clear calls-to-action, fast performance, and mobile-first responsive design. Leads are captured through a Formspree-powered contact form for simple, reliable inquiries without maintaining a custom backend.',
+    longDesc: 'I built Seattle Kids Party as a production-ready Next.js website to support customer acquisition for a kids party decoration + events business. The site is optimized for marketing use cases: clear package pages, equipment browsing, strong CTAs, and a streamlined contact workflow. I integrated the "Contact" experience using Formspree to route form submissions securely and reduce backend complexity, while keeping the UI responsive and performant across devices.',
+    techStack: 'Next.js, React, JavaScript, CSS/Tailwind, Formspree.',
+    link: 'https://seattlekidsparty.com/',
+    linkText: 'View Project'
   }
 ];
 
 const Home = () => {
   const [expandedProject, setExpandedProject] = useState(null);
-  const [showExploreModal, setShowExploreModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [formStatus, setFormStatus] = useState({ submitting: false, succeeded: false, error: null });
 
   const toggleProject = (projectId) => {
     setExpandedProject(expandedProject === projectId ? null : projectId);
   };
 
-  const handleExploreClick = (e) => {
-    e.preventDefault();
-    setShowExploreModal(true);
+  const openContactModal = () => {
+    setShowContactModal(true);
+    setFormStatus({ submitting: false, succeeded: false, error: null });
   };
 
-  const handleNavClick = (sectionId) => {
-    setShowExploreModal(false);
-    setTimeout(() => {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-    }, 300);
+  const closeContactModal = () => {
+    setShowContactModal(false);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus({ submitting: true, succeeded: false, error: null });
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xdalogrg', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setFormStatus({ submitting: false, succeeded: true, error: null });
+      } else {
+        setFormStatus({ submitting: false, succeeded: false, error: 'Something went wrong. Please try again.' });
+      }
+    } catch (error) {
+      setFormStatus({ submitting: false, succeeded: false, error: 'Something went wrong. Please try again.' });
+    }
   };
 
   return (
     <div className="Home">
-
-      {/* Hero Section - Cover Page */}
-      <section className="hero">
-        {/* Animated code writing background */}
-        <div className="hero-bg-animation">
-          {/* Left side code */}
-          <div className="code-block left-code">
-            <span className="code-text t1">const developer = {'{'}</span>
-            <span className="code-text t2">&nbsp;&nbsp;name: "Carla",</span>
-            <span className="code-text t3">&nbsp;&nbsp;skills: ["React", "Node"],</span>
-            <span className="code-text t4">&nbsp;&nbsp;passionate: true,</span>
-            <span className="code-text t5">{'}'}</span>
-          </div>
-
-          {/* Right side code */}
-          <div className="code-block right-code">
-            <span className="code-text t6">function buildApp() {'{'}</span>
-            <span className="code-text t7">&nbsp;&nbsp;return &lt;App /&gt;;</span>
-            <span className="code-text t8">{'}'}</span>
-          </div>
-
-          {/* Top floating code */}
-          <span className="code-text floating f1">&lt;html&gt;</span>
-          <span className="code-text floating f2">import React from 'react';</span>
-          <span className="code-text floating f3">npm install</span>
-          <span className="code-text floating f4">&lt;div className="app"&gt;</span>
-          <span className="code-text floating f5">export default</span>
-          <span className="code-text floating f6">git commit -m "init"</span>
-          <span className="code-text floating f7">async/await</span>
-          <span className="code-text floating f8">useState()</span>
-          <span className="code-text floating f9">.map(item =&gt; )</span>
-          <span className="code-text floating f10">&lt;Component /&gt;</span>
-          <span className="code-text floating f11">MongoDB.connect()</span>
-          <span className="code-text floating f12">res.json(data)</span>
-          <span className="code-text floating f13">SELECT * FROM</span>
-          <span className="code-text floating f14">pip install flask</span>
-          <span className="code-text floating f15">docker-compose up</span>
-        </div>
-        <div className="hero-content">
-          <h1>Carla Rodrigues Maturo</h1>
-          <p className="hero-title">Full Stack Developer</p>
-          <p className="hero-tagline">Building user-focused web experiences</p>
-          <div className="hero-buttons">
-            <button className="hero-cta" onClick={handleExploreClick}>Explore</button>
-            <a href="/Carla-Software-Engineer.pdf" className="hero-resume" download>Download Resume</a>
-          </div>
-        </div>
-        <a href="#about" className="scroll-indicator">
-          <span className="scroll-arrow"></span>
-        </a>
-
-        {/* Explore Modal */}
-        {showExploreModal && (
-          <div className="explore-modal-overlay" onClick={() => setShowExploreModal(false)}>
-            <div className="explore-modal" onClick={(e) => e.stopPropagation()}>
-              <button className="modal-close" onClick={() => setShowExploreModal(false)}>&times;</button>
-              <h2>Explore My Portfolio</h2>
-              <div className="modal-cards">
-                <div className="modal-card" onClick={() => handleNavClick('about')}>
-                  <span className="modal-icon">👋</span>
-                  <h3>About Me</h3>
-                  <p>Learn about my background and passion</p>
-                </div>
-                <div className="modal-card" onClick={() => handleNavClick('projects')}>
-                  <span className="modal-icon">💻</span>
-                  <h3>Projects</h3>
-                  <p>See my latest work and case studies</p>
-                </div>
-                <div className="modal-card" onClick={() => handleNavClick('skills')}>
-                  <span className="modal-icon">🛠️</span>
-                  <h3>Skills</h3>
-                  <p>Technologies I work with</p>
-                </div>
-                <div className="modal-card" onClick={() => handleNavClick('contact')}>
-                  <span className="modal-icon">📧</span>
-                  <h3>Contact</h3>
-                  <p>Let's connect and collaborate</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
 
       {/* About Section */}
       <section id="about" className="about">
@@ -173,7 +112,7 @@ const Home = () => {
         <img src={me} alt="Carla" className="about-image" />
           <div className="about-text">
             <p>
-              Welcome! I'm Carla, a full-stack software engineer with a passion for coding and problem-solving. I enjoy creating streamlined, user-friendly solutions and thrive on learning new technologies and tackling challenges. With years of experience as a data analyst, I've worked in diverse lab environments including material analysis, biotech, and pharma.
+              Welcome! I’m Carla, a full-stack engineer with a product mindset. I build and iterate on real-world applications, with a current focus on SoftwareIQ, where I own delivery across the frontend experience, backend data workflows, and release improvements based on user needs. I enjoy turning ambiguous problems into clear roadmaps and shipped features. My background in data analysis taught me how to work with complex datasets, validate results, and communicate decisions clearly.
             </p>
           </div>
         </div>
@@ -233,8 +172,53 @@ const Home = () => {
       {/* Contact Section */}
       <section id="contact" className="contact">
         <h2>Contact Me</h2>
-        <p>Email: moraescarla23@gmail.com</p>
+        <p>
+          Email: <button onClick={openContactModal} className="contact-email-link">moraescarla23@gmail.com</button>
+        </p>
       </section>
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="contact-modal-overlay" onClick={closeContactModal}>
+          <div className="contact-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="contact-modal-close" onClick={closeContactModal}>&times;</button>
+            <h3>Get in Touch</h3>
+            {formStatus.succeeded ? (
+              <p className="contact-success">Thanks for your message! I'll get back to you soon.</p>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <label htmlFor="name">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  required
+                />
+                <label htmlFor="email">Email Address</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  required
+                />
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                />
+                {formStatus.error && (
+                  <p className="contact-error">{formStatus.error}</p>
+                )}
+                <button type="submit" disabled={formStatus.submitting}>
+                  {formStatus.submitting ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
